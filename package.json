@@ -15,14 +15,17 @@
     "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.17",
     "@mui/material-nextjs": "^5.15.11",
+    "@tanstack/react-query": "^5.36.2",
     "dotenv": "^16.4.5",
     "mongoose": "^8.3.4",
     "next": "14.2.3",
     "nodemon": "^3.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.35.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

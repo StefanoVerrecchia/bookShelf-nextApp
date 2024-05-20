@@ -1,10 +1,12 @@
 
-import Layout from './components/Layout.js'
-import Books from './books/page.jsx';
+import { AppProvider } from './context/AppState'
+import Layout from "./components/Layout";
 export default function Home() {
   return (
     <main>
-      <h1>BENVENUTO</h1>
+      <AppProvider>
+          <h1>BENVENUTO</h1>
+      </AppProvider>
     </main>
   );
 }

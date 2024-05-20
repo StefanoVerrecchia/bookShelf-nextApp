@@ -1,16 +1,15 @@
 // Layout.js
 import React from 'react';
 import SideMenu from './SideMenu.js';
-import Grid from '@mui/material/Grid';
 
 const Layout = ({ children }) => {
     return (
-        <main style={{ display: 'flex'}}>
+        <div style={{ display: 'flex'}}>
             <SideMenu />
-            <Grid container spacing={1} style={{ border: '2px solid black', margin: '5px', }}>
+            <div  style={{ width:'100%', margin: '5px', }}>
                 {children}
-            </Grid>
-        </main>
+            </div>
+        </div>
     );
 };
 
