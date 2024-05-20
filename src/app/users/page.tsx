@@ -15,6 +15,11 @@ import getResource from '../utils/getResource.js'
 export default function Users() {
   
   const resource : any = getResource('users');
+  const setResource = useStore((state) => state.setResource);
+
+  useEffect(()=>{
+    setResource(resource);
+  },[]);
   const { data, isError, isLoading, isSuccess } = useQuery<any>({
     queryKey: ['users'],
     queryFn: async () => {

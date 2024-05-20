@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react'
 import Dasboard from '../components/Dasboard.js'
 
-import useBooksApi from '../utils/hooks/useBooksApi';
 
 import { useQuery } from '@tanstack/react-query'
 import SearchBar from '../components/SearchBar.js'
@@ -16,6 +15,11 @@ import getResource from '../utils/getResource.js'
 export default function Books() {
   
   const resource : any = getResource('books');
+  const setResource = useStore((state) => state.setResource);
+
+  useEffect(()=>{
+    setResource(resource);
+  },[]);
 
   
   const { data, isError, isLoading, isSuccess } = useQuery<any>({

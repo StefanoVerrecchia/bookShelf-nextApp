@@ -3,6 +3,7 @@
 import { create } from 'zustand'
 export const useStore = create((set) => ({
     filteredData: [],
+    resouce : {},
     /*loggedUser : null,
      item: {},
     idRecord: '',
@@ -15,6 +16,7 @@ export const useStore = create((set) => ({
     setopenDetail: (newValue) => set({ openDetail: newValue }),
     setIdRecord: (newIdRecord) => set({ idRecord: newIdRecord }), 
     setLoggedUser : (data) => set ({loggedUser : data})*/
+    setResource : (data) => set({resouce : data}),
     setFilteredData : (data) => set({filteredData : data}),
 
 }))

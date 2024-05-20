@@ -9,6 +9,8 @@ import { useStore } from '../store/store.js'
 
 const SearchBar = ({ data }) => {
 
+    const resouce = useStore((state) => state.resouce);
+    console.log('resource ---> ' , resouce);
     const filteredData = useStore((state) => state.filteredData);
     const setFilteredData = useStore((state) => state.setFilteredData);
 
@@ -19,7 +21,7 @@ const SearchBar = ({ data }) => {
         const value = e.currentTarget.value.trim();
         if (value.length > 0) {
             const searchArray = filteredData.filter(el => {
-                return el.title.toLowerCase().includes(value.toLowerCase());
+                return el[resouce.key].toLowerCase().includes(value.toLowerCase());
             });
             setFilteredData(searchArray); 
         } else {

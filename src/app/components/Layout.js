@@ -1,7 +1,7 @@
 // Layout.js
 'use client'
 import React from 'react';
-import SideMenu from './SideMenu.js';
+import SideMenu from './SideMenu/SideMenu.js';
 import Login from './LoginForm/LoginForm.js'
 
 const Layout = ({ children }) => {
