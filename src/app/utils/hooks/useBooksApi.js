@@ -14,6 +14,7 @@ const useBooksApi = () => {
                 },
                 body: JSON.stringify(data)
             })
+            return await response.json();
         } catch (error) {
             console.log(error);
             console.error('Errore durante la creazione:', error);

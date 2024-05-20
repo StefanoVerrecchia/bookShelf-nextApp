@@ -4,7 +4,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { useState } from 'react';
-import useBooksApi from '../utils/hooks/useBooksApi';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 const detailBookContainerOverStyle = {
@@ -24,8 +23,6 @@ const detailBookContainerOverStyle = {
 
 export default function Detail({ element , resource}) {
   
-  const { update } = useBooksApi();
-
   const [openDetail, setOpenDetail] = useState(false);
   const [item, setItem] = useState({});
 
@@ -34,7 +31,7 @@ export default function Detail({ element , resource}) {
 
   const mutation = useMutation({
     mutationFn: (data) => {
-      return update(data);
+      return resource.action.UPDATE_ITEM(data);
     },
     onError: (error, variables, context) => {
       console.log('error', error)

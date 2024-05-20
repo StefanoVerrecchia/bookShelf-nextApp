@@ -1,7 +1,7 @@
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
 const useUsersApi = () => {
-    const getLists = async (signal) => {
+    const getListsUser = async (signal) => {
         console.log('getLists');
         try {
             let response = await fetch(apiUrl, {
@@ -32,6 +32,6 @@ const useUsersApi = () => {
             return { error: 'Errore durante la cancellazione dei dati' };
         }
     }
-    return {getLists,removeUser};
+    return {getListsUser,removeUser};
 }
 export default useUsersApi;

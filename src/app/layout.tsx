@@ -18,15 +18,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <AppProvider>
+            <AppProvider>
               <Layout>
                 {children}
               </Layout>
-          </AppProvider>
+            </AppProvider>
         </AppRouterCacheProvider>
       </body>
     </html >

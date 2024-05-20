@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
 import Dasboard from '../components/Dasboard.js'
-import useUsersApi from '../utils/hooks/useUsersApi';
 import { useQuery, useIsFetching } from '@tanstack/react-query'
 import SearchBar from '../components/SearchBar.js'
 import {useStore} from '../store/store.js'
@@ -12,15 +11,17 @@ import Grid from '@mui/material/Grid';
  */
 import getResource from '../utils/getResource.js'
 
-const resource = getResource('users');
 
 export default function Users() {
   
-  const { getLists } = useUsersApi();
+  const resource : any = getResource('users');
   const { data, isError, isLoading, isSuccess } = useQuery<any>({
     queryKey: ['users'],
     queryFn: async () => {
-      const response = await getLists();
+      if (!resource) {
+        throw new Error('Resource not found');
+      }
+      const response = await resource.action.GET_LIST();
       return response;
     },
     

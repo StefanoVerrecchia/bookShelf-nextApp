@@ -10,14 +10,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Detail from './Detail.js'
 
 import CircularProgress from '@mui/material/CircularProgress';
-import useUsersApi from '../utils/hooks/useUsersApi';
-import useBooksApi from '../utils/hooks/useBooksApi';
 
 
 
 const DialogModal = ({ element, resource }) => {
-  const { removeUser } = useUsersApi();
-  const { remove } = useBooksApi();
   const [openDialog, setOpenDialog] = useState(false);
 
 
@@ -25,7 +21,7 @@ const DialogModal = ({ element, resource }) => {
 
   const mutation = useMutation({
     mutationFn: (id) => {
-      return remove(id);
+      return resource.action.REMOVE_ITEM(id);
     },
     onError: (error, variables, context) => {
       console.log('error', error)
@@ -96,7 +92,7 @@ const Dasboard = ({ data, resource }) => {
       {
         data.map(el => (
           <div key={el._id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '4px solid #4E5F75', 'margin': '45px', height: '120px', borderRadius: '5%' }}>
-            <p style={{ margin: '10px', 'border-bottom': '1px solid #4E5F75' }}>{el[resource.key]}</p>
+            <p style={{ margin: '10px', 'borderBottom': '1px solid #4E5F75' }}>{el[resource.key]}</p>
             <div key={el._id} >
               <Detail element={el} resource={resource} />
               <DialogModal element={el} resource={resource} />

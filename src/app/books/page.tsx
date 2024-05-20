@@ -4,27 +4,27 @@ import Dasboard from '../components/Dasboard.js'
 
 import useBooksApi from '../utils/hooks/useBooksApi';
 
-import { useQuery, useIsFetching } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import SearchBar from '../components/SearchBar.js'
 import {useStore} from '../store/store.js'
-/* import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
-import Grid from '@mui/material/Grid';
- */
+
 
 
 import getResource from '../utils/getResource.js'
 
-const resource = getResource('books');
 
 export default function Books() {
   
-  const { getLists } = useBooksApi();
+  const resource : any = getResource('books');
+
+  
   const { data, isError, isLoading, isSuccess } = useQuery<any>({
     queryKey: ['books'],
     queryFn: async () => {
-      const response = await getLists();
+      if (!resource) {
+        throw new Error('Resource not found');
+      }
+      const response = await resource.action.GET_LIST();
       return response.data;
     },
     

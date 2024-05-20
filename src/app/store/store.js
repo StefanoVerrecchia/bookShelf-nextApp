@@ -3,7 +3,8 @@
 import { create } from 'zustand'
 export const useStore = create((set) => ({
     filteredData: [],
-    item: {},
+    /*loggedUser : null,
+     item: {},
     idRecord: '',
     openDialog: false,
     openForm : false,
@@ -12,7 +13,8 @@ export const useStore = create((set) => ({
     setOpenDialog: (newValue) => set({ openDialog: newValue }),
     setopenForm: (newValue) => set({ openForm: newValue }),
     setopenDetail: (newValue) => set({ openDetail: newValue }),
-    setIdRecord: (newIdRecord) => set({ idRecord: newIdRecord }),
-    setFilteredData : (data) => set({filteredData : data})
+    setIdRecord: (newIdRecord) => set({ idRecord: newIdRecord }), 
+    setLoggedUser : (data) => set ({loggedUser : data})*/
+    setFilteredData : (data) => set({filteredData : data}),
 
 }))
